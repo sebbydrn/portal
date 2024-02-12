@@ -1,0 +1,11 @@
+Login
+http://ec2-54-251-121-234.ap-southeast-1.compute.amazonaws.com:3000/lbcapi/ss/login
+Params:
+{
+    "email": "lbc.loyalty.dev@gmail.com",
+    "password": "ASDFgh11!!",
+    "secretKey": "Loyalty2019"
+}
+
+Dictionaries
+http://ec2-54-251-121-234.ap-southeast-1.compute.amazonaws.com:3000/lbcapi/ss/loadDictionaries
