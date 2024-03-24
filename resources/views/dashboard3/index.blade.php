@@ -128,6 +128,101 @@
 
     {{-- Content --}}
 	<div id="padding_content"></div>
+
+	<div id="dashboard_content" class="col_no_padding">
+		<div class="row mt-1 justify-content-center">
+			<div class="col-6 no-right-border">
+				<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Area in ha.</p>
+									<h4 class="my-1 text-success">{{$total_area}}</h4>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-seedling"></i>
+							   </div>
+						   </div>
+					   </div>
+				</div>
+			</div> 
+
+			<div class="col-6 no-right-border">
+				<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Number of Farmers</p>
+									<h4 class="my-1 text-success">{{$total_farmers}}</h4>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-user"></i>
+							   </div>
+						   </div>
+					   </div>
+				</div>
+			</div>
+			
+			<div class="col-6 no-right-border">
+				<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Number of Varieties Planted</p>
+									<h4 class="my-1 text-success">{{$total_varieties}}</h4>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-seedling"></i>
+							   </div>
+						   </div>
+					   </div>
+				</div>
+			</div>
+
+			<div class="col-6 no-right-border">
+				<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Fertilizer Distributed</p>
+									<h4 class="my-1 text-success">{{$total_distributed_fertilizers}} bags</h4>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-seedling"></i>
+							   </div>
+						   </div>
+					   </div>
+				</div>
+			</div>
+
+			<div class="col-6 no-right-border">
+				<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Seeds Distributed (Inbred)</p>
+									<h4 class="my-1 text-success">{{$total_distributed_seeds_inbred}} bags</h4>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-seedling"></i>
+							   </div>
+						   </div>
+					   </div>
+				</div>
+			</div>
+
+			<div class="col-6 no-right-border">
+				<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Seeds Distributed (Hybrid)</p>
+									<h4 class="my-1 text-success">{{$total_distributed_seeds_hybrid}} kg</h4>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-seedling"></i>
+							   </div>
+						   </div>
+					   </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<?php /**<div id="dashboard_content" class="col_no_padding">
 		{{-- <div class="row mt-5">
 			<div class="col-12">

@@ -525,35 +525,56 @@ class Dashboard3Controller extends Controller
         // }
 
         // // dd($cs_estimated_yield_region_data);
-        $production_estimates = [];
-        $semesterText = "";
-        $cs_production_data = [];
-        $rs_area_applied_region = [];
-        $rs_varieties_applied = [];
-        $rs_varieties_applied_data_arr = [];
-        $rs_area_insp_passed = [];
-        $rs_area_insp_passed_data = [];
-        $rs_varieties_applied_region = [];
-        $rs_varieties_applied_region_data = [];
-        $rs_area_per_program = [];
-        $rs_varieties_applied_programs = [];
-        $rs_varieties_applied_program_data = [];
-        $rs_area_applied_coop = [];
-        $rs_area_applied_coop_data = [];
-        $rs_area_applied_coop_data_all = [];
-        $cs_estimated_yield = [];
-        $cs_estimated_yield_data = [];
-        $cs_estimated_yield_months = [];
-        $cs_estimated_yield_totals = [];
-        $cs_estimated_yield_varieties = [];
-        $cs_estimated_yield_varieties_list = [];
-        $cs_estimated_yield_region_months = [];
-        $cs_estimated_yield_region_data = [];
-        $years = [];
+        // $production_estimates = [];
+        // $semesterText = "";
+        // $cs_production_data = [];
+        // $rs_area_applied_region = [];
+        // $rs_varieties_applied = [];
+        // $rs_varieties_applied_data_arr = [];
+        // $rs_area_insp_passed = [];
+        // $rs_area_insp_passed_data = [];
+        // $rs_varieties_applied_region = [];
+        // $rs_varieties_applied_region_data = [];
+        // $rs_area_per_program = [];
+        // $rs_varieties_applied_programs = [];
+        // $rs_varieties_applied_program_data = [];
+        // $rs_area_applied_coop = [];
+        // $rs_area_applied_coop_data = [];
+        // $rs_area_applied_coop_data_all = [];
+        // $cs_estimated_yield = [];
+        // $cs_estimated_yield_data = [];
+        // $cs_estimated_yield_months = [];
+        // $cs_estimated_yield_totals = [];
+        // $cs_estimated_yield_varieties = [];
+        // $cs_estimated_yield_varieties_list = [];
+        // $cs_estimated_yield_region_months = [];
+        // $cs_estimated_yield_region_data = [];
+        // $years = [];
+
+        // get total area from plots table
+        $total_area = DB::connection('seed_production_planner')
+        ->table('plots')
+        ->where('is_active', '=', 1)
+        ->sum(DB::raw('CAST(area AS FLOAT)'));
+
+        // get total number of farmers
+        $total_farmers = DB::connection('seed_production_planner')->table('farmers')->where('is_active', 1)->count();
+
+        // count the number of varieties planted
+        $total_varieties = DB::connection('seed_production_planner')->table('production_plans')->select('variety')->distinct()->count();
+
+        // count the total quantity of distributed seeds
+        $total_distributed_seeds_inbred = DB::connection('seed_production_planner')->table('seed_distribution_list')->where('seed_type', 'Inbred')->sum(DB::raw('CAST(quantity AS FLOAT)'));
+        $total_distributed_seeds_hybrid = DB::connection('seed_production_planner')->table('seed_distribution_list')->where('seed_type', 'Hybrid')->sum(DB::raw('CAST(quantity AS FLOAT)'));
+
+        // count the total quantity of fertilizers distributed
+        $total_distributed_fertilizers = DB::connection('seed_production_planner')->table('fertilizer_distribution_list')->sum(DB::raw('CAST(quantity AS FLOAT)'));
+
+
         
 
         return view('dashboard3.index')
-                ->with(compact('contacts', 'production_estimates', 'semesterText', 'cs_production_data', 'rs_area_applied_region', 'rs_varieties_applied', 'rs_varieties_applied_data_arr', 'rs_area_insp_passed', 'rs_area_insp_passed_data', 'rs_varieties_applied_region', 'rs_varieties_applied_region_data', 'rs_area_per_program', 'rs_varieties_applied_programs', 'rs_varieties_applied_program_data', 'rs_area_applied_coop', 'rs_area_applied_coop_data', 'rs_area_applied_coop_data_all', 'cs_estimated_yield', 'cs_estimated_yield_data', 'cs_estimated_yield_months', 'cs_estimated_yield_totals', 'cs_estimated_yield_varieties', 'cs_estimated_yield_varieties_list', 'cs_estimated_yield_region_months', 'cs_estimated_yield_region_data', 'years'));
+                ->with(compact('contacts', 'total_area', 'total_farmers', 'total_varieties', 'total_distributed_seeds_inbred', 'total_distributed_seeds_hybrid', 'total_distributed_fertilizers'));
     }
 
     public function filter($year, $sem) {
