@@ -570,11 +570,17 @@ class Dashboard3Controller extends Controller
         // count the total quantity of fertilizers distributed
         $total_distributed_fertilizers = DB::connection('seed_production_planner')->table('fertilizer_distribution_list')->sum(DB::raw('CAST(quantity AS FLOAT)'));
 
-
+        // get the top 3 varieties distributed
+        $top_varieties = DB::connection('seed_production_planner')->table('seed_distribution_list')
+                        ->select('variety', DB::raw('SUM(CAST(quantity AS FLOAT)) as total_quantity'))
+                        ->groupBy('variety')
+                        ->orderBy('total_quantity', 'desc')
+                        ->take(3)
+                        ->get();
         
 
         return view('dashboard3.index')
-                ->with(compact('contacts', 'total_area', 'total_farmers', 'total_varieties', 'total_distributed_seeds_inbred', 'total_distributed_seeds_hybrid', 'total_distributed_fertilizers'));
+                ->with(compact('contacts', 'total_area', 'total_farmers', 'total_varieties', 'total_distributed_seeds_inbred', 'total_distributed_seeds_hybrid', 'total_distributed_fertilizers', 'top_varieties'));
     }
 
     public function filter($year, $sem) {

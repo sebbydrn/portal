@@ -221,6 +221,31 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row mt-5">
+			<div class="col-12">
+				<h3 class="text-center">Top 3 Varities Distributed</h3>
+			</div>
+		</div>
+
+		@foreach($top_varieties as $variety)
+			<div class="row mt-4 justify-content-center">
+				<div class="col-6 no-right-border">
+					<div class="card radius-10 border-start border-0 border-3 border-success dashboard-card">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">{{ $variety->variety }}</p>
+										<h4 class="my-1 text-success">{{ $variety->total_quantity }} bags</h4>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-seedling"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		@endforeach
 	</div>
 
 	<?php /**<div id="dashboard_content" class="col_no_padding">
