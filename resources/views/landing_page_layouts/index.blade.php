@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, inital-scale=1.0">
 	<title>Rice Seed Information System</title>
 
-	<link rel="shortcut icon" href="{{url("/").'/public/images/favicon.ico'}}" type="image/x-icon">
+	<link rel="shortcut icon" href="" type="image/x-icon">
 
 	@include('landing_page_layouts.cssLinks')
 

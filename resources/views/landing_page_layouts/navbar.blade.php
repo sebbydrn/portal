@@ -16,7 +16,7 @@
 				<div class="float-right">
 					<div class="contact_header_item item_right">
 						<div class="contact_icon_background">
-							<a href="https://www.facebook.com/philriceproducts/" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
+							<a href="" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
 						</div>
 					</div>
 					{{-- <div class="contact_header_item item_right">
@@ -43,9 +43,9 @@
 {{-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	@if(Request::segment(1) == '')
-		<a class="navbar-brand navbar-left" href="{{url('/')}}"><img src="{{url("/").'/public/images/RSIS_navbar.png'}}" alt="" class="navbar_logo"></a>
+		<a class="navbar-brand navbar-left" href="{{url('/')}}"><img src="{{url("/").'/public/images/logo2-transformed.png'}}" alt="" class="navbar_logo"></a>
 	@else
-		<a class="navbar-brand navbar-left" href="{{url('/')}}"><img src="{{url("/").'/public/images/RSIS_navbar_colored.png'}}" alt="" class="navbar_logo"></a>
+		<a class="navbar-brand navbar-left" href="{{url('/')}}"><img src="{{url("/").'/public/images/logo2-transformed.png'}}" alt="" class="navbar_logo"></a>
 	@endif
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
