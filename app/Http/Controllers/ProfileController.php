@@ -56,7 +56,7 @@ class ProfileController extends Controller {
         $stations = $this->stations();
 
         // Countries
-        $countries = $this->countries();
+        // $countries = $this->countries();
 
         // Provinces
         $provinces = $this->provinces();
@@ -74,7 +74,7 @@ class ProfileController extends Controller {
         ->with(compact('contacts'))
         ->with(compact('user_data'))
         ->with(compact('stations'))
-        ->with(compact('countries'))
+        // ->with(compact('countries'))
         ->with(compact('provinces'))
         ->with(compact('municipalities'))
         ->with(compact('affiliations'))
@@ -91,7 +91,7 @@ class ProfileController extends Controller {
             'secondaryEmail' => 'email|unique:users,email, '.$id.',user_id',
             'birthday' => 'required',
             'contact_no' => 'unique:users,contact_no, '.$id.',user_id',
-            'country' => 'required',
+            // 'country' => 'required',
             'province' => 'required_if:country,PH',
             'municipality' => 'required_if:country,PH',
             'barangay' => 'required_if:country,PH',
@@ -139,7 +139,7 @@ class ProfileController extends Controller {
             'birthday' => $request->birthday,
             'sex' => $request->sex,
             'contact_no' => $request->contact_no,
-            'country' => $request->country,
+            // 'country' => $request->country,
             'region' => ($request->country == "PH") ? $request->region : '',
             'province' => ($request->country == "PH") ? $request->province : '',
             'municipality' => ($request->country == "PH") ? $request->municipality : '',
@@ -165,7 +165,7 @@ class ProfileController extends Controller {
             'old_birthday' => $request->old_birthday,
             'old_sex' => $request->old_sex,
             'old_contact_no' => $request->old_contact_no,
-            'old_country' => $request->old_country,
+            // 'old_country' => $request->old_country,
             'old_region' => $request->old_region,
             'old_province' => $request->old_province,
             'old_municipality' => $request->old_municipality,
@@ -194,7 +194,7 @@ class ProfileController extends Controller {
             $user->birthday = $user_data['birthday'];
             $user->sex = $user_data['sex'];
             $user->contact_no = $user_data['contact_no'];
-            $user->country = $user_data['country'];
+            // $user->country = $user_data['country'];
             $user->region = $user_data['region'];
             $user->province = $user_data['province'];
             $user->municipality = $user_data['municipality'];

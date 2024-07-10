@@ -194,7 +194,7 @@
                                         @endif
                                     </div>
                                     
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="country"><span class="required_field">*</span> Country</label>
                                         <select name="country" id="country" class="form-control {{$errors->has('country') ? 'is-invalid' : ''}}">
                                             <option value="0" selected disabled>Select Country</option>
@@ -205,7 +205,7 @@
                                         @if ($errors->has('country'))
                                             <span class="error invalid-feedback">{{$errors->first('country')}}</span>
                                         @endif
-                                    </div>
+                                    </div> --}}
 
                                     <input type="hidden" name="region" id="region" value="{{$user_data->region}}">
                                     
@@ -488,7 +488,7 @@
                                         @endif
                                     </div>
                                     
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="country"><span class="required_field">*</span> Country</label>
                                         <select name="country" id="country" class="form-control {{$errors->has('country') ? 'is-invalid' : ''}}">
                                             <option value="0" selected disabled>Select Country</option>
@@ -499,7 +499,7 @@
                                         @if ($errors->has('country'))
                                             <span class="error invalid-feedback">{{$errors->first('country')}}</span>
                                         @endif
-                                    </div>
+                                    </div> --}}
 
                                     <input type="hidden" name="region" id="region" value="{{$user_data->region}}">
                                     
